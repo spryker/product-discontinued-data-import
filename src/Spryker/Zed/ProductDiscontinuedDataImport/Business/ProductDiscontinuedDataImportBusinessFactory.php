@@ -20,11 +20,6 @@ use Spryker\Zed\ProductDiscontinuedDataImport\Business\ProductDiscontinuedImport
  */
 class ProductDiscontinuedDataImportBusinessFactory extends DataImportBusinessFactory
 {
-    /**
-     * @param \Generated\Shared\Transfer\DataImporterConfigurationTransfer|null $dataImporterConfigurationTransfer
-     *
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
-     */
     public function createProductDiscontinuedDataImport(
         ?DataImporterConfigurationTransfer $dataImporterConfigurationTransfer = null
     ): DataImporterInterface {
@@ -45,17 +40,11 @@ class ProductDiscontinuedDataImportBusinessFactory extends DataImportBusinessFac
         return $dataImporter;
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createNoteExtractorStep(): DataImportStepInterface
     {
         return new NoteExtractorStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createConcreteSkuToIdProductStep(): DataImportStepInterface
     {
         return new ConcreteSkuToIdProductStep();

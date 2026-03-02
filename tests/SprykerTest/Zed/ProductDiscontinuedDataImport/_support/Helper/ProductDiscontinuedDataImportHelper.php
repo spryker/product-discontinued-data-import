@@ -16,9 +16,6 @@ class ProductDiscontinuedDataImportHelper extends Module
 {
     use DataCleanupHelperTrait;
 
-    /**
-     * @return void
-     */
     public function ensureDatabaseTableIsEmpty(): void
     {
         $this->deleteProductDiscountedData();
@@ -28,9 +25,6 @@ class ProductDiscontinuedDataImportHelper extends Module
         });
     }
 
-    /**
-     * @return void
-     */
     public function assertDatabaseTablesContainsData(): void
     {
         $productDiscontinuedQuery = $this->getProductDiscontinuedQuery();
@@ -40,25 +34,16 @@ class ProductDiscontinuedDataImportHelper extends Module
         $this->assertTrue(($productDiscontinuedNoteQuery->count() > 0), 'Expected at least one entry in the database table but database table is empty.');
     }
 
-    /**
-     * @return \Orm\Zed\ProductDiscontinued\Persistence\SpyProductDiscontinuedQuery
-     */
     protected function getProductDiscontinuedQuery(): SpyProductDiscontinuedQuery
     {
         return SpyProductDiscontinuedQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\ProductDiscontinued\Persistence\SpyProductDiscontinuedNoteQuery
-     */
     protected function getProductDiscontinuedNoteQuery(): SpyProductDiscontinuedNoteQuery
     {
         return SpyProductDiscontinuedNoteQuery::create();
     }
 
-    /**
-     * @return void
-     */
     protected function deleteProductDiscountedData(): void
     {
         $this->getProductDiscontinuedNoteQuery()

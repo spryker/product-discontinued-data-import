@@ -49,9 +49,6 @@ class ProductDiscontinuedWriterStep extends PublishAwareStep implements DataImpo
         );
     }
 
-    /**
-     * @return string
-     */
     protected function getActiveUntilDate(): string
     {
         return (new DateTime())
@@ -59,12 +56,6 @@ class ProductDiscontinuedWriterStep extends PublishAwareStep implements DataImpo
             ->format('Y-m-d');
     }
 
-    /**
-     * @param \Orm\Zed\ProductDiscontinued\Persistence\SpyProductDiscontinued $productDiscontinuedEntity
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return void
-     */
     protected function saveLocalizedNotes(SpyProductDiscontinued $productDiscontinuedEntity, DataSetInterface $dataSet): void
     {
         if (empty($dataSet[ProductDiscontinuedDataSetInterface::KEY_LOCALIZED_NOTES])) {

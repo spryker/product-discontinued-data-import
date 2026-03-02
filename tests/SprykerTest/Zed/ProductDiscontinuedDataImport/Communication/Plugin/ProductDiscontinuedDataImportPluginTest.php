@@ -41,9 +41,6 @@ class ProductDiscontinuedDataImportPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testImportImportsData(): void
     {
         $this->tester->ensureDatabaseTableIsEmpty();
@@ -66,9 +63,6 @@ class ProductDiscontinuedDataImportPluginTest extends Unit
         $this->tester->assertDatabaseTablesContainsData();
     }
 
-    /**
-     * @return void
-     */
     public function testImportThrowsExceptionWhenProductNotFound(): void
     {
         $this->tester->ensureDatabaseTableIsEmpty();
@@ -88,9 +82,6 @@ class ProductDiscontinuedDataImportPluginTest extends Unit
         $productDiscontinuedDataImportPlugin->import($dataImportConfigurationTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testImportThrowsExceptionWhenLocalizedNoteMissing(): void
     {
         $this->markTestSkipped('Marked as skipped while we`re allowing not strict import for localized data for ProductDiscontinued module.');
@@ -112,9 +103,6 @@ class ProductDiscontinuedDataImportPluginTest extends Unit
         $productDiscontinuedDataImportPlugin->import($dataImportConfigurationTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGetImportTypeReturnsTypeOfImporter(): void
     {
         $productDiscontinuedDataImportPlugin = new ProductDiscontinuedDataImportPlugin();
